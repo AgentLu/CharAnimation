@@ -1,3 +1,3 @@
-Charackter animation fron spritesheet.
+Character animation from sprite sheet. 
 
-This is learning excercize to creat animation of a 2D charackter using javascript
+This is learning exercise to create animation of a 2D charackter using javascript.
