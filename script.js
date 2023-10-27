@@ -16,12 +16,12 @@ const spriteWidth = 575;
 const spriteHeight = 523;
 
 let gameFrame = 0;
-const staggerFrames = 14;
+const staggerFrames = 10;
 const spriteAnimation = [];
 const animationStates = [
     {
         name: 'idle',
-        frames: 8,
+        frames: 7,
     },
     {  
         name: 'jump',
@@ -40,24 +40,24 @@ const animationStates = [
         frames: 11,
     },
     {
-        name: 'hurt',
+        name: 'sit',
+        frames: 5,
+    },
+    {
+        name: 'roll',
+        frames: 7,
+    },
+    {
+        name: 'bite',
+        frames: 7,
+    },
+    {
+        name: 'ko',
+        frames: 12,
+    },
+    {
+        name: 'getHit',
         frames: 4,
-    },
-    {
-        name: 'die',
-        frames: 6,
-    },
-    {
-        name: 'walk',
-        frames: 9,
-    },
-    {
-        name: 'attack',
-        frames: 2,
-    },
-    {
-        name: 'block',
-        frames: 2,
     }
 ];
 animationStates.forEach((state, index) => {
@@ -74,7 +74,7 @@ animationStates.forEach((state, index) => {
 
 function animate() {
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    let position = Math.floor(gameFrame/staggerFrames) % spriteAnimation['idle'].loc.length;
+    let position = Math.floor(gameFrame/staggerFrames) % spriteAnimation[playerState].loc.length;
     let frameX = spriteWidth * position;
     let frameY = spriteAnimation[playerState].loc[position].y;
        // ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
